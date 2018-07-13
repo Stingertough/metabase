@@ -11,13 +11,12 @@ machine:
 dependencies:
   override:
     - lein deps
-    - npm install -g 'yarn@>=0.16.0'
-    # Forces the Sauce Connect binary to be downloaded during dependencies phase so it's cached
-    - SAUCE_CONNECT_DOWNLOAD_ON_INSTALL=true yarn
+    - yarn
     - mkdir plugins
   cache_directories:
     - "~/.yarn"
     - "~/.yarn-cache"
+    - ~/.cache/yarn
 database:
   post:
     # MySQL doesn't load named timezone information automatically, you have to run this command to load it
